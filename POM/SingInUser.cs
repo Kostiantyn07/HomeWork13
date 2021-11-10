@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Selenium.POM
 {
-    class SignInPage
+    class SignInUser
     {
         private readonly IWebDriver _webDriver;
 
@@ -18,24 +18,24 @@ namespace Selenium.POM
         private readonly By _errorMessageByEmail = By.XPath("//input[@name = 'email']/../div[@class='FormErrorText__error---nzyq']");
         private readonly By _errorMessageByPass = By.XPath("//input[@name = 'password']/../div[@class='FormErrorText__error---nzyq']/div");
 
-        public SignInPage(IWebDriver webDriver)
+        public SignInUser(IWebDriver webDriver)
         {
             _webDriver = webDriver;
         }
 
-        public SignInPage GoToSignInPage()
+        public SignInUser GoToSignInPage()
         {
             _webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
             return this;
         }
 
-        public SignInPage InputMailField(string email)
+        public SignInUser InputMailField(string email)
         {
             _webDriver.FindElement(_emailField).SendKeys(email);
             return this;
         }
 
-        public SignInPage InputPasswordField(string password)
+        public SignInUser InputPasswordField(string password)
         {
             _webDriver.FindElement(_passwordField).SendKeys(password);
             return this;
