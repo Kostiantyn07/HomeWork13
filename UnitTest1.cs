@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace HomeWork13
 {
@@ -33,8 +33,8 @@ namespace HomeWork13
             DateTime dataTime = new DateTime();
             dataTime = DateTime.Now;
             string name = dataTime.ToString();
-            string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
-            email.SendKeys("newMail" + name + "@test.com");
+            //string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
+            email.SendKeys("newMail" + "@test.com");
             IWebElement password = driver.FindElement(By.CssSelector("[name='password']"));
             password.SendKeys("Nelegal95!");
             IWebElement passwordConfirm = driver.FindElement(By.CssSelector("[name='password_confirm']"));
@@ -50,15 +50,15 @@ namespace HomeWork13
             string companyLocation = "2453 Lombard St, San Francisco, CA 94123, USA";
             IWebElement locationField = driver.FindElement(By.CssSelector("input[name=\"location\"]"));
             locationField.SendKeys(companyLocation.ToString());
-            Thread.Sleep(1500);
+            Task.Delay(1500).Wait();
             locationField.SendKeys(Keys.ArrowDown);
-            Thread.Sleep(500);
+            Task.Delay(500).Wait();
             locationField.SendKeys(Keys.Enter);
             IWebElement industry = driver.FindElement(By.CssSelector("[name='industry']"));
             industry.Click();
-            Thread.Sleep(1500);
+            Task.Delay(1500).Wait();
             industry.SendKeys(Keys.ArrowDown);
-            Thread.Sleep(500);
+            Task.Delay(500).Wait();
             industry.SendKeys(Keys.Enter);
             IWebElement Finish = driver.FindElement(By.CssSelector("[type='submit']"));
             Finish.Click();
@@ -162,9 +162,9 @@ namespace HomeWork13
             verifEmail.SendKeys("chenko");
             IWebElement location = driver.FindElement(By.CssSelector("[class *=\"input__self input__self_type_text-underline ng-untouched ng-pristine ng-valid pac-target-input\"]"));
             location.SendKeys("merica");
-            Thread.Sleep(1500);
+            Task.Delay(2000).Wait();
             location.SendKeys(Keys.ArrowDown);
-            Thread.Sleep(500);
+            Task.Delay(500).Wait();
             location.SendKeys(Keys.Enter);
             IWebElement industry = driver.FindElement(By.CssSelector("[class *=\"input__self input__self_type_text-underline ng-pristine ng-valid ng-touched\"]"));
             industry.SendKeys("Cosmetics");
@@ -178,7 +178,7 @@ namespace HomeWork13
             cvc.SendKeys("439");
             IWebElement saveCard = driver.FindElement(By.CssSelector("[type='submit']"));
             saveCard.Click();
-            Assert.Pass();
+            
         }
 
             [TearDown]
