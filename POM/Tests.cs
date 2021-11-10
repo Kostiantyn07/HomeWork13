@@ -33,7 +33,6 @@ namespace HomeWork13
             DateTime dataTime = new DateTime();
             dataTime = DateTime.Now;
             string name = dataTime.ToString();
-            //string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
             email.SendKeys("newMail" + "@test.com");
             IWebElement password = driver.FindElement(By.CssSelector("[name='password']"));
             password.SendKeys("Nelegal95!");
