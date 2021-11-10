@@ -137,8 +137,7 @@ namespace HomeWork13
             IWebElement editSwitcher = driver.FindElement(By.ClassName("edit-switcher__icon_type_edit"));
             editSwitcher.Click(); 
             IWebElement logOut = driver.FindElement(By.CssSelector("[class *=\"link link_type_logout link_active\"]"));
-            logOut.Click();
-            
+            logOut.Click();   
         }
 
         [Test]
@@ -178,7 +177,6 @@ namespace HomeWork13
             cvc.SendKeys("439");
             IWebElement saveCard = driver.FindElement(By.CssSelector("[type='submit']"));
             saveCard.Click();
-            
         }
 
             [TearDown]

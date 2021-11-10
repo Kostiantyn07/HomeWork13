@@ -16,4 +16,8 @@
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="POM\Registration\" />
+  </ItemGroup>
+
 </Project>
