@@ -33,9 +33,7 @@ namespace HomeWork13
             DateTime dataTime = new DateTime();
             dataTime = DateTime.Now;
             string name = dataTime.ToString();
-            name = name.Replace(".", "");
-            name = name.Replace(" ", "");
-            name = name.Replace(":", "");
+            string now = DateTime.Now.ToString("ddMMyyyyhhmmss");
             email.SendKeys("newMail" + name + "@test.com");
             IWebElement password = driver.FindElement(By.CssSelector("[name='password']"));
             password.SendKeys("Nelegal95!");
@@ -140,7 +138,7 @@ namespace HomeWork13
             editSwitcher.Click(); 
             IWebElement logOut = driver.FindElement(By.CssSelector("[class *=\"link link_type_logout link_active\"]"));
             logOut.Click();
-            Assert.Pass();
+            
         }
 
         [Test]
