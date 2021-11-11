@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Selenium.POM
+namespace HomeWork13
+
 {
     class SignInUser
     {
@@ -23,34 +24,23 @@ namespace Selenium.POM
             _webDriver = webDriver;
         }
 
-        public SignInUser GoToSignInPage()
+        public SignInUser GoSignInUser()
         {
             _webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
             return this;
         }
 
-        public SignInUser InputMailField(string email)
+        public SignInUser MailField(string email)
         {
             _webDriver.FindElement(_emailField).SendKeys(email);
             return this;
         }
 
-        public SignInUser InputPasswordField(string password)
+        public SignInUser PasswordField(string password)
         {
             _webDriver.FindElement(_passwordField).SendKeys(password);
             return this;
         }
 
-        public void ClickLogIn() =>
-             _webDriver.FindElement(_buttonLogIn).Click();
-
-        public string GetErrorMessage() =>
-             _webDriver.FindElement(_errorMessage).Text;
-
-        public string GetErrorMessageAboutMail() =>
-     _webDriver.FindElement(_errorMessageByEmail).Text;
-
-        public string GetErrorMessageAboutPassword() =>
-     _webDriver.FindElement(_errorMessageByPass).Text;
     }
 }
