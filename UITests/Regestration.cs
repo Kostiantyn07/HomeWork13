@@ -29,8 +29,8 @@ namespace Registration.UITest
         [Test]
         public void RegistrationWitfValidData()
         {
-            string name = "Kostya";
-            var registrationPage = new RegistrationPages(_webDriver);
+            string name = "Kostya"; 
+            var registrationPage = new RegistrationPages(_webDriver);      //Нужно было вынести в Setup.
             var home = new HomePage(_webDriver);
             registrationPage.GoToRegistrationPages()
                 .InputFirstName(name)
@@ -53,7 +53,7 @@ namespace Registration.UITest
         [TestCase("Kostya", "Gall", "Nelegal95!", "Nelegal95!", "1234567890")]
         public void RegistrationWithInValidEmail(string firstName, string lastName, string password, string confirmPassword, string phone)
         {
-            var registrationPage = new RegistrationPages(_webDriver);
+            var registrationPage = new RegistrationPages(_webDriver);  
             var home = new HomePage(_webDriver);
             registrationPage.GoToRegistrationPages()
                 .InputFirstName(firstName)

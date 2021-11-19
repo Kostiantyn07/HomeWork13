@@ -29,10 +29,8 @@ namespace LogIn.UITest
         [Test]
         public void CheckValidChangeName()
         {
-            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
-            var accountSetting = new AccountSetting(_webDriver);
-            var signInPage = new SignInPage(_webDriver);
+            var accountSetting = new AccountSetting(_webDriver);   // Вынести в SetUp.
+            var signInPage = new SignInPage(_webDriver);           // Вынести в SetUp.
             var home = new HomePage(_webDriver);
             signInPage.GoToSignInPage()
                 .InputMailField("k.galchenko27@gmail.com")

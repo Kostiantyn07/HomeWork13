@@ -2,7 +2,7 @@
 
 namespace Selenium.POM
 {
-    class MainPage
+   public class MainPage
     {
         private readonly IWebDriver _webDriver;
 
@@ -16,7 +16,6 @@ namespace Selenium.POM
             _webDriver = webDriver;
         }
 
-        public string CheckATryLogIn =>
-            _webDriver.FindElement(_welcomeInAccount).Text;
+        public string CheckATryLogIn => _webDriver.FindElement(_welcomeInAccount).Text;
     }
 }
