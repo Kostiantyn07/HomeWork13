@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWork13
-
+namespace Selenium.POM
 {
-    class SignInUser
+    class SignInPage
     {
         private readonly IWebDriver _webDriver;
 
@@ -19,28 +18,35 @@ namespace HomeWork13
         private readonly By _errorMessageByEmail = By.XPath("//input[@name = 'email']/../div[@class='FormErrorText__error---nzyq']");
         private readonly By _errorMessageByPass = By.XPath("//input[@name = 'password']/../div[@class='FormErrorText__error---nzyq']/div");
 
-        public SignInUser(IWebDriver webDriver)
+        public SignInPage(IWebDriver webDriver)
         {
             _webDriver = webDriver;
         }
 
-        public SignInUser GoSignInUser()
+        public SignInPage GoToSignInPage()
         {
             _webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
             return this;
         }
 
-        public SignInUser MailField(string email)
+        public SignInPage InputMailField(string email)
         {
             _webDriver.FindElement(_emailField).SendKeys(email);
             return this;
         }
 
-        public SignInUser PasswordField(string password)
+        public SignInPage InputPasswordField(string password)
         {
             _webDriver.FindElement(_passwordField).SendKeys(password);
             return this;
         }
 
+        public void ClickLogIn() => _webDriver.FindElement(_buttonLogIn).Click();
+
+        public string GetErrorMessage() => _webDriver.FindElement(_errorMessage).Text;
+
+        public string GetErrorMessageAboutMail() => _webDriver.FindElement(_errorMessageByEmail).Text;
+
+        public string GetErrorMessageAboutPassword() => _webDriver.FindElement(_errorMessageByPass).Text;
     }
 }
